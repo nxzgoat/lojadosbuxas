@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Buxas Shop — A loja do universo invertido</title>
+<style>
+:root{color-scheme:dark;--bg:#0a0612;--card:#150d24;--line:#2d1f4a;--pu:#8b3dff;--pk:#ff2e93;--tx:#fff;--mu:#b9a8d6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-padding-top:70px}
+body{margin:0;background:radial-gradient(circle at 20% -10%,#2a0f55,transparent 50%),var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh}
+body.chaos{animation:hue 6s linear infinite}body.chaos .card{transform:rotate(calc(var(--r,1)*1.5deg))}body.chaos .logo .s{display:inline-block;transform:scaleY(1)}
+@keyframes hue{to{filter:hue-rotate(360deg)}}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;border:0}
+:focus-visible{outline:3px solid var(--pk);outline-offset:2px}
+.wrap{max-width:1150px;margin:auto;padding:0 16px}
+header{position:sticky;top:0;z-index:20;background:#0a0612ee;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:12px;padding:10px 0;flex-wrap:wrap}
+.logo{font-weight:900;font-size:26px;letter-spacing:-1px;text-decoration:none;color:#fff;display:flex;align-items:center;gap:6px}
+.logo b{background:linear-gradient(90deg,var(--pk),var(--pu));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 24px #ff2e9355}
+.logo .s{display:inline-block;transform:scaleY(-1);color:#fff;font-size:.7em;border:2px solid var(--pk);padding:0 6px;border-radius:6px}
+nav{display:flex;gap:4px;flex:1;flex-wrap:wrap}
+nav a{color:var(--mu);text-decoration:none;padding:6px 10px;border-radius:8px;font-size:14px}nav a:hover,nav a.on{color:#fff;background:var(--line)}
+.btn{background:linear-gradient(90deg,var(--pk),var(--pu));color:#fff;padding:10px 16px;border-radius:12px;font-weight:700;transition:.2s;box-shadow:0 0 18px #8b3dff55}
+.btn:hover{transform:translateY(-2px) scale(1.03)}.btn:disabled{opacity:.6;cursor:wait}
+.btn.g{background:var(--line);box-shadow:none}.btn.sm{padding:6px 10px;font-size:14px}
+#cartb{position:relative}#cnt{position:absolute;top:-8px;right:-8px;background:#fff;color:#000;border-radius:99px;font-size:12px;min-width:22px;height:22px;display:grid;place-items:center;font-weight:800}
+.bump{animation:bump .5s}@keyframes bump{40%{transform:scale(1.25) rotate(-6deg)}}
+.hero{margin:20px 0;padding:28px;border-radius:20px;background:linear-gradient(120deg,#3a0f7a,#ff2e93);position:relative;overflow:hidden}
+.hero h1{margin:0 0 6px;font-size:clamp(26px,5vw,46px);line-height:1.1}.hero p{margin:4px 0}
+.hero .big{position:absolute;right:10px;bottom:-20px;font-size:110px;opacity:.25;transform:scaleY(-1)}
+.dia{display:flex;gap:14px;align-items:center;background:var(--card);border:1px dashed var(--pk);border-radius:16px;padding:14px;margin-bottom:20px;flex-wrap:wrap}
+.dia .em{font-size:48px}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.tools input,.tools select{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 12px}.tools input{flex:1;min-width:180px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.chip{background:var(--card);border:1px solid var(--line);color:var(--mu);border-radius:99px;padding:6px 12px;font-size:14px}.chip.on{background:var(--pu);color:#fff;border-color:var(--pu)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:6px;transition:.25s}
+.card:hover{transform:translateY(-4px);border-color:var(--pk);box-shadow:0 8px 30px #ff2e9333}
+.pic{height:120px;border-radius:12px;display:grid;place-items:center;font-size:62px;background:linear-gradient(135deg,#2a1450,#4a1450);cursor:pointer;border:0;width:100%}
+.card h3{margin:2px 0;font-size:16px}.card small{color:var(--mu)}
+.pr{font-size:20px;font-weight:800}.old{color:var(--mu);text-decoration:line-through;font-size:13px;margin-left:6px;font-weight:400}
+.tag{font-size:11px;background:var(--pk);border-radius:6px;padding:1px 6px;margin-left:6px}
+.stars{color:#ffc83d;letter-spacing:1px}
+.card .row{display:flex;gap:6px;margin-top:auto}.card .row .btn{flex:1}
+h2{margin:24px 0 10px}.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px}
+.two{display:grid;grid-template-columns:1.2fr 1fr;gap:16px}@media(max-width:780px){.two{grid-template-columns:1fr}}
+label{display:block;margin:10px 0 4px;color:var(--mu);font-size:14px}
+input[type=text],input[type=email]{width:100%;background:#0e0819;border:1px solid var(--line);border-radius:10px;padding:10px}
+.pay{display:flex;gap:8px;align-items:center;padding:8px 10px;border:1px solid var(--line);border-radius:10px;margin:6px 0;cursor:pointer;color:#fff}
+.pay:has(input:checked){border-color:var(--pk);background:#ff2e9318}
+.err{color:#ff7a9c;font-size:13px;min-height:18px}.ok{color:#6dffb0}
+.line{display:flex;justify-content:space-between;gap:8px;padding:3px 0}.tot{font-size:22px;font-weight:900;border-top:1px solid var(--line);margin-top:6px;padding-top:8px}
+.eco{color:#6dffb0;font-size:13px}
+.sim{color:var(--mu);font-size:12px;margin-top:10px}
+#drawer{position:fixed;top:0;right:0;height:100%;width:min(400px,100%);background:#120a20;border-left:1px solid var(--pk);z-index:40;transform:translateX(105%);transition:.3s;display:flex;flex-direction:column;padding:16px;padding-top:calc(16px + env(safe-area-inset-top,0px))}
+#drawer.open{transform:none}#items{flex:1;overflow:auto}
+.it{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}.it .e{font-size:34px}.it div{flex:1;min-width:0}
+.q{display:flex;align-items:center;gap:6px}.q button{background:var(--line);width:28px;height:28px;border-radius:8px;color:#fff}
+#ov{position:fixed;inset:0;background:#000a;z-index:30;display:none}#ov.on{display:block}
+#modal{position:fixed;inset:0;z-index:50;display:none;place-items:center;background:#000b;padding:16px}#modal.on{display:grid}
+#modal .in{background:var(--card);border:1px solid var(--pk);border-radius:20px;max-width:560px;width:100%;max-height:90vh;overflow:auto;padding:20px}
+.rev{background:#0e0819;border-radius:10px;padding:8px 10px;margin:6px 0;font-size:14px}
+#toasts{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:60;display:flex;flex-direction:column;gap:6px;align-items:center;pointer-events:none;padding-bottom:env(safe-area-inset-bottom,0px)}
+.toast{background:#fff;color:#000;padding:10px 16px;border-radius:12px;font-weight:600;animation:up .3s;box-shadow:0 6px 24px #000a}
+@keyframes up{from{opacity:0;transform:translateY(14px)}}
+.spin{display:inline-block;width:16px;height:16px;border:3px solid #fff5;border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite;vertical-align:-3px;margin-right:6px}@keyframes sp{to{transform:rotate(360deg)}}
+.succ{text-align:center;padding:30px 10px}.succ h1{font-size:clamp(26px,6vw,44px);background:linear-gradient(90deg,#6dffb0,var(--pk));-webkit-background-clip:text;background-clip:text;color:transparent}
+.succ .em{font-size:70px;animation:bump 1s}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:8px 0}summary{cursor:pointer;font-weight:700}
+footer{margin:40px 0 20px;color:var(--mu);font-size:13px;text-align:center;border-top:1px solid var(--line);padding-top:16px}
+.wide{overflow-x:auto}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<header><div class="wrap bar">
+<a class="logo" href="#loja" aria-label="Buxas Shop"><b>BUxAS</b><span class="s">SHOP</span></a>
+<nav id="nav"><a href="#loja" data-r="loja">Loja</a><a href="#pedidos" data-r="pedidos">Meus pedidos</a><a href="#sobre" data-r="sobre">Sobre</a><a href="#faq" data-r="faq">FAQ</a></nav>
+<button class="btn g sm" id="chaos" aria-pressed="false">🌀 Modo caótico</button>
+<button class="btn" id="cartb" aria-label="Abrir carrinho">🛒 Carrinho<span id="cnt">0</span></button>
+</div></header>
+<main class="wrap" id="app" tabindex="-1"></main>
+<footer class="wrap"><p id="foot">Buxas Shop é uma loja fictícia de brincadeira. Todas as compras são simulações: nenhuma cobrança, nenhum pagamento e nenhuma entrega reais. Avaliações são demonstrativas.</p></footer>
+<div id="ov"></div>
+<aside id="drawer" aria-label="Carrinho"><div class="line"><h2 style="margin:0">Seu carrinho</h2><button class="btn g sm" id="cx" aria-label="Fechar">✕</button></div><div id="items"></div><div id="csum"></div></aside>
+<div id="modal" role="dialog" aria-modal="true"><div class="in" id="mbody"></div></div>
+<div id="toasts" aria-live="polite"></div>
+<script>
+const $=s=>document.querySelector(s),R=c=>(c/100).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const CATS=['Moda do universo invertido','Tecnologia duvidosa','Sobrevivência social','Luxos desnecessários'];
+const raw=`Cueca Suprema Feminina|8990|0|🩲|A revolução da moda íntima do universo paralelo.|4.8|1
+Calcinha Masculina Ultra Pro|7990|0|👙|Desenvolvida para homens que não têm medo de desafiar a realidade.|4.6|0
+Chinelo Social Executivo|24990|0|🩴|Para reuniões importantes e churrascos de família.|4.7|0
+Terno de Pijama Premium|59990|0|🤵|Aparência de CEO, conforto de quem acordou há cinco minutos.|4.9|1
+Meia Aquática Impermeável|3990|0|🧦|A ciência ainda tenta entender por que isso existe.|3.9|0
+Boné para Usar nos Pés|4990|0|🧢|O acessório definitivo para quem já desistiu da moda convencional.|4.1|1
+Wi-Fi Portátil sem Internet|19990|1|📶|Conecta você à sensação de estar conectado.|4.5|0
+Carregador de Pensamentos|34990|1|🔌|Recarregue suas ideias em aproximadamente nunca.|3.7|1
+Mouse Gamer para Celular|12990|1|🖱️|Compatibilidade emocional com qualquer dispositivo.|4.0|0
+Teclado Sem Teclas|49990|1|⌨️|Digite com a força da imaginação.|4.4|0
+HD de 0 GB|9990|1|💾|Espaço infinito para guardar absolutamente nada.|5.0|1
+Monitor 8K Desligado|199990|1|🖥️|Imagem preta com riqueza de detalhes.|4.3|0
+Curso de Como Dizer Oi|2990|2|👋|Desenvolva habilidades sociais em até 300 anos.|4.2|0
+Escudo Anti-Vácuo|5990|2|🛡️|Proteção emocional contra mensagens ignoradas.|4.6|1
+Manual para Entender Indiretas|1990|2|📖|Não inclui garantia de interpretação correta.|3.5|0
+Detector de Falsos Amigos|14990|2|🚨|Apita quando alguém fala "confia em mim".|4.8|0
+Kit Desculpas para Não Sair de Casa|3990|2|🛋️|Cinquenta justificativas prontas.|4.9|1
+Óculos de Ver Pessoas que Não Gostam de Você|8990|2|🕶️|Agora você sofre com resolução 4K.|3.8|0
+Pedra Gamer RGB|39990|3|🪨|Iluminação gamer para uma pedra que não faz absolutamente nada.|4.9|1
+Água Premium Invisível|14990|3|💧|Embalagem incluída, água não encontrada.|4.0|0
+Ar Engarrafado do Quarto|7990|3|🫙|Edição limitada com cheiro de madrugada.|4.2|0
+Caixa Misteriosa Vazia|29990|3|📦|A emoção de pagar pela possibilidade de não receber nada.|4.4|1
+Assinatura de Nada Premium|4990|3|♾️|Mais nada, com atendimento prioritário.|4.1|0
+Certificado de Milionário Honorário|99990|3|🏆|Você continua sem dinheiro, mas agora tem um certificado fictício.|4.7|0`;
+const P=raw.split('\n').map((l,i)=>{const a=l.split('|');return{id:i+1,name:a[0],price:+a[1],cat:+a[2],em:a[3],desc:a[4],rate:+a[5],promo:a[6]==='1',old:a[6]==='1'?Math.round(+a[1]*1.3/10)*10:0}});
+const RV=[["Comprei {n} e continuo igual. Produto fiel à descrição.",5],["{n} mudou minha vida. Agora tenho {n}.",5],["Tão revolucionário que meu guarda-roupa pediu demissão.",5],["Veio exatamente como prometido: nada de errado, nada de certo.",4],["Minha mãe não entendeu, meu gato aprovou.",5],["Dei 3 estrelas porque as outras 2 estão em outro universo.",3],["Chegou ontem, amanhã e nunca. Cinco estrelas pela pontualidade.",5],["Não sei o que é, mas já defendo em reunião.",4]];
+const NM=["Dimitri Quântico","Tia do Zap Cósmico","Seu Madruga Reverso","Aura Anônima","Bob do Avesso","Ana Paralela"];
+const COUP={BUXAS10:{p:10,d:"10% de desconto"},UNIVERSO20:{p:20,d:"20% de desconto"},CALVO50:{p:50,min:10000,d:"50% acima de R$ 100"},NADAGRATIS:{p:100,d:"produtos a R$ 0,00 (só na simulação)"}};
+const PAY=["Pix do Universo Paralelo","Cartão Interdimensional","Boleto para o Ano 3000","Pagamento em aura"];
+const MSG=["Hoje o normal está em promoção negativa.","Aviso: nenhuma realidade foi prejudicada neste carrinho.","Compre agora, arrependa-se em outra dimensão.","Frete grátis para quem entende a piada.","Cuecas femininas em alta no mercado paralelo."];
+const CHAOS=["O anormal é coisa deste universo.","Tudo ao contrário, inclusive esta frase.","Seu carrinho está sendo observado por uma pedra."];
+const LS={g(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},s(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let cart=LS.g('bx_cart',{}),orders=LS.g('bx_orders',[]),uname=LS.g('bx_name',''),coupon='',F={q:'',cat:-1,sort:'',promo:false},chaos=false,tt;
+const byId=id=>P.find(p=>p.id==id);
+function toast(t){const e=document.createElement('div');e.className='toast';e.textContent=t;$('#toasts').append(e);setTimeout(()=>e.remove(),2200)}
+function saveCart(){LS.s('bx_cart',cart);const n=Object.values(cart).reduce((a,b)=>a+b,0);$('#cnt').textContent=n;renderCart()}
+function totals(c,code){let sub=0,sav=0;for(const id in c){const p=byId(id);sub+=p.price*c[id];if(p.old)sav+=(p.old-p.price)*c[id]}
+ const cp=COUP[code];let disc=0,msg='';if(code){if(!cp)msg='Cupom inválido neste (e em outros) universos.';else if(cp.min&&sub<cp.min)msg='CALVO50 exige compras acima de R$ 100,00.';else{disc=Math.round(sub*cp.p/100);msg='Cupom aplicado: '+cp.d+'!'}}
+ disc=Math.min(disc,sub);const ship=!sub||sub>=20000||disc===sub?0:1990;return{sub,disc,ship,sav,total:Math.max(0,sub-disc+ship),msg,ok:disc>0}}
+function add(id,open){const q=cart[id]||0;if(q>=10){toast('Máximo de 10 unidades por item (o universo tem limites).');return}cart[id]=q+1;saveCart();toast(byId(id).em+' '+byId(id).name+' no carrinho!');const b=$('#cartb');b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump');if(open)openCart()}
+function openCart(){$('#drawer').classList.add('open');$('#ov').classList.add('on')}
+function closeAll(){$('#drawer').classList.remove('open');$('#ov').classList.remove('on');$('#modal').classList.remove('on')}
+function renderCart(){const ids=Object.keys(cart);$('#items').innerHTML=ids.length?ids.map(id=>{const p=byId(id);return`<div class="it"><span class="e">${p.em}</span><div><b>${p.name}</b><br><small>${R(p.price)} un.</small></div><span class="q"><button data-a="dec" data-id="${id}" aria-label="Diminuir">−</button><b>${cart[id]}</b><button data-a="inc" data-id="${id}" aria-label="Aumentar">+</button></span><button class="btn g sm" data-a="rm" data-id="${id}" aria-label="Remover ${p.name}">🗑️</button></div>`}).join(''):'<p style="text-align:center;color:var(--mu)">Seu carrinho está vazio, assim como a Caixa Misteriosa. 📦<br>Que tal ver a loja?</p>';
+ const t=totals(cart,'');$('#csum').innerHTML=ids.length?`<div class="line"><span>Subtotal</span><b>${R(t.sub)}</b></div>${t.sav?`<div class="eco">Economia fictícia: ${R(t.sav)}</div>`:''}<button class="btn" style="width:100%;margin-top:8px" data-a="go" data-to="checkout">Ir para o checkout</button>`:'<button class="btn g" style="width:100%" data-a="go" data-to="loja">Continuar comprando</button>'}
+function stars(r){return'<span class="stars" aria-label="Nota '+r+' de 5">'+'★'.repeat(Math.round(r))+'☆'.repeat(5-Math.round(r))+'</span> '+r.toFixed(1)}
+function card(p){return`<article class="card" style="--r:${p.id%2?1:-1}"><button class="pic" data-a="view" data-id="${p.id}" aria-label="Detalhes de ${p.name}">${p.em}</button><small>${CATS[p.cat]}</small><h3>${p.name}${p.promo?'<span class="tag">PROMO</span>':''}</h3><div>${stars(p.rate)}</div><div class="pr">${R(p.price)}${p.old?`<span class="old">${R(p.old)}</span>`:''}</div><div class="row"><button class="btn g sm" data-a="view" data-id="${p.id}">Detalhes</button><button class="btn sm" data-a="add" data-id="${p.id}">Adicionar ao carrinho</button></div></article>`}
+function list(){let l=P.filter(p=>(F.cat<0||p.cat==F.cat)&&(!F.promo||p.promo)&&(p.name+p.desc+CATS[p.cat]).toLowerCase().includes(F.q.toLowerCase()));
+ if(F.sort=='asc')l.sort((a,b)=>a.price-b.price);if(F.sort=='desc')l.sort((a,b)=>b.price-a.price);if(F.sort=='rate')l.sort((a,b)=>b.rate-a.rate);
+ $('#grid').innerHTML=l.length?l.map(card).join(''):'<p class="box">Nenhum produto encontrado. Talvez ele só exista no universo normal. <button class="btn sm" data-a="clr">Limpar filtros</button></p>';$('#rc').textContent=l.length+' produto(s)'}
+function shop(){const d=P[Math.floor(Date.now()/864e5)%P.length];
+ $('#app').innerHTML=`<section class="hero"><span class="big">🛒</span><h1>${chaos?CHAOS[0]:'O normal é coisa de outro universo.'}</h1><p id="rm">${MSG[Math.floor(Math.random()*MSG.length)]}</p><p><b>PROMOÇÃO ABSURDA:</b> compre 1 nada, leve 0 nada. Use <code>BUXAS10</code> no checkout.</p></section>
+ <div class="dia"><span class="em">${d.em}</span><div style="flex:1"><small>⭐ PRODUTO DO DIA</small><h3 style="margin:0">${d.name}</h3><span class="pr">${R(d.price)}</span></div><button class="btn" data-a="view" data-id="${d.id}">Ver produto</button></div>
+ <div class="tools"><input id="q" type="search" placeholder="Buscar produtos…" aria-label="Buscar" value="${esc(F.q)}"><select id="so" aria-label="Ordenar"><option value="">Ordenar…</option><option value="asc">Menor preço</option><option value="desc">Maior preço</option><option value="rate">Melhor avaliação</option></select><label class="chip" style="margin:0"><input type="checkbox" id="pm"> Só promoções</label><button class="btn g sm" data-a="clr">Limpar filtros</button></div>
+ <div class="chips" id="chips"></div><p id="rc" style="color:var(--mu)"></p><div class="grid" id="grid"></div>`;
+ $('#so').value=F.sort;$('#pm').checked=F.promo;chips();list();
+ $('#q').oninput=e=>{F.q=e.target.value;list()};$('#so').onchange=e=>{F.sort=e.target.value;list()};$('#pm').onchange=e=>{F.promo=e.target.checked;list()}}
+function chips(){$('#chips').innerHTML=['Todas',...CATS].map((c,i)=>`<button class="chip ${F.cat==i-1?'on':''}" data-a="cat" data-id="${i-1}">${c}</button>`).join('')}
+function view(id){const p=byId(id);const rv=[0,1,2].map(i=>RV[(p.id+i*3)%RV.length]);
+ $('#mbody').innerHTML=`<div class="line"><small>${CATS[p.cat]}</small><button class="btn g sm" data-a="mx" aria-label="Fechar">✕</button></div><div class="pic" style="height:150px;font-size:84px;cursor:default">${p.em}</div><h2 style="margin:10px 0 4px">${p.name}</h2><div>${stars(p.rate)}</div><p>${p.desc}</p><div class="pr">${R(p.price)}${p.old?`<span class="old">${R(p.old)}</span><div class="eco">Economia fictícia: ${R(p.old-p.price)}</div>`:''}</div><div style="display:flex;gap:8px;margin:10px 0"><button class="btn" data-a="add" data-id="${p.id}">Adicionar ao carrinho</button><button class="btn g" data-a="share" data-id="${p.id}">🔗 Compartilhar</button></div><h4>Avaliações (fictícias, só de brincadeira)</h4>${rv.map((r,i)=>`<div class="rev"><b>${NM[(p.id+i)%6]}</b> <span class="stars">${'★'.repeat(r[1])}</span><br>${r[0].replace(/\{n\}/g,p.name)}</div>`).join('')}`;$('#modal').classList.add('on');$('#ov').classList.remove('on')}
+function checkout(){const ids=Object.keys(cart);if(!ids.length){$('#app').innerHTML='<div class="box succ"><div class="em">🕳️</div><h2>Carrinho vazio</h2><p>Nada por aqui. Nem a Assinatura de Nada Premium.</p><a class="btn" href="#loja" style="text-decoration:none;display:inline-block">Voltar à loja</a></div>';return}
+ $('#app').innerHTML=`<h2>Checkout</h2><div class="two"><form class="box" id="fm" novalidate><label for="nm">Nome do comprador (pode ser fictício)</label><input type="text" id="nm" maxlength="40" value="${esc(uname)}" autocomplete="off"><div class="err" id="e1"></div><label for="em">E-mail (opcional, fictício)</label><input type="email" id="em" maxlength="60" autocomplete="off"><div class="err" id="e2"></div><label for="cp">Cupom</label><div style="display:flex;gap:6px"><input type="text" id="cp" value="${coupon}" placeholder="BUXAS10…" autocomplete="off"><button type="button" class="btn g" data-a="coup">Aplicar</button></div><div class="err" id="e3"></div><label>Pagamento simulado</label>${PAY.map((p,i)=>`<label class="pay"><input type="radio" name="py" value="${p}" ${i?'':'checked'}> ${p}</label>`).join('')}<button class="btn" id="fin" type="submit" style="width:100%;margin-top:12px">Finalizar compra</button><p class="sim">🔒 Simulação: sem cobrança, sem dados financeiros e sem entrega real. Nunca digite dados reais de pagamento.</p></form><div class="box" id="res"></div></div>`;
+ sumry();$('#fm').onsubmit=e=>{e.preventDefault();pay()}}
+function sumry(){const t=totals(cart,coupon),e=$('#res');if(!e)return;const m=$('#e3');if(m){m.className='err '+(t.ok?'ok':'');m.textContent=t.msg}
+ e.innerHTML='<h3 style="margin-top:0">Resumo</h3>'+Object.keys(cart).map(id=>{const p=byId(id);return`<div class="line"><span>${p.em} ${p.name} ×${cart[id]}</span><span>${R(p.price*cart[id])}</span></div>`}).join('')+`<div class="line"><span>Subtotal</span><span>${R(t.sub)}</span></div><div class="line"><span>Desconto promocional</span><span>−${R(t.disc)}</span></div><div class="line"><span>Frete fictício</span><span>${t.ship?R(t.ship):'Grátis'}</span></div><div class="line tot"><span>Total</span><span>${R(t.total)}</span></div>${t.sav+t.disc?`<div class="eco">Você "economizou" ${R(t.sav+t.disc)} (valor fictício)</div>`:''}`}
+function pay(){const n=$('#nm').value.trim(),em=$('#em').value.trim();$('#e1').textContent=n.length<2?'Informe um nome (mínimo 2 letras).':'';$('#e2').textContent=em&&!/^\S+@\S+\.\S+$/.test(em)?'E-mail inválido (pode ser fictício, mas com formato de e-mail).':'';
+ if($('#e1').textContent||$('#e2').textContent)return;const b=$('#fin');b.disabled=true;b.innerHTML='<span class="spin"></span>Processando no universo paralelo…';
+ setTimeout(()=>{const t=totals(cart,coupon);const o={id:'BX-'+Date.now().toString(36).toUpperCase().slice(-5)+Math.floor(Math.random()*90+10),date:new Date().toLocaleString('pt-BR'),name:n,pay:document.querySelector('input[name=py]:checked').value,items:Object.keys(cart).map(id=>({id:+id,q:cart[id]})),sub:t.sub,disc:t.disc,ship:t.ship,total:t.total,coupon:t.ok?coupon:''};
+  uname=n;LS.s('bx_name',n);orders.unshift(o);LS.s('bx_orders',orders);cart={};coupon='';saveCart();location.hash='pedido-'+o.id},1800)}
+const FUN=["Seu guarda-roupa invertido agradece.","Sua conexão com a sensação de conexão está garantida.","A vida social continua em manutenção, mas agora com acessórios.","Você acaba de adquirir uma enorme quantidade de nada luxuoso."];
+function orderLines(o){return o.items.map(i=>{const p=byId(i.id);return`<div class="line"><span>${p.em} ${p.name} ×${i.q}</span><span>${R(p.price*i.q)}</span></div>`}).join('')}
+function success(id){const o=orders.find(x=>x.id==id);if(!o){location.hash='loja';return}
+ $('#app').innerHTML=`<div class="succ"><div class="em">🎉</div><h1>COMPRA REALIZADA COM SUCESSO!</h1><p>Pedido <b>${o.id}</b> — obrigado, ${esc(o.name)}!</p></div><div class="box">${orderLines(o)}<div class="line tot"><span>Total fictício</span><span>${R(o.total)}</span></div><p>${FUN[byId(o.items[0].id).cat]}</p><p class="sim">⚠️ Isto foi uma simulação. Nenhuma cobrança foi feita e nenhum produto será entregue.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn" href="#loja" style="text-decoration:none">Voltar à loja</a><a class="btn g" href="#pedidos-${o.id}" style="text-decoration:none">Ver meu pedido</a></div></div>`}
+function pedidos(open){$('#app').innerHTML=`<h2>Meus pedidos</h2><div class="box"><label for="dn">Nome de exibição</label><div style="display:flex;gap:6px"><input type="text" id="dn" maxlength="40" value="${esc(uname)}" placeholder="Seu nome no universo invertido"><button class="btn" data-a="sname">Salvar</button></div><p>${uname?`Olá, ${esc(uname)}! Seu histórico mora só neste navegador.`:'Dê um nome a si mesmo. O universo precisa saber.'}</p></div>`+(orders.length?orders.map(o=>`<details ${o.id==open?'open':''}><summary>${o.id} — ${o.date} — ${R(o.total)}</summary>${orderLines(o)}<div class="line"><span>Pagamento simulado</span><span>${o.pay}</span></div>${o.coupon?`<div class="line"><span>Cupom</span><span>${o.coupon}</span></div>`:''}<div class="line tot"><span>Total</span><span>${R(o.total)}</span></div></details>`).join('')+'<button class="btn g" data-a="clrh">Limpar histórico</button>':'<div class="box">Nenhum pedido ainda. Seu histórico está tão vazio quanto o HD de 0 GB. 💾</div>')}
+function sobre(){$('#app').innerHTML='<h2>Sobre a Buxas Shop</h2><div class="box"><p>A Buxas Shop nasceu em um universo onde cuecas são femininas, calcinhas são masculinas, chinelos vão a reuniões e a água é invisível. Aqui, o inútil é luxo e o impossível é lançamento.</p><p>Tudo é uma brincadeira: <b>nenhum pagamento, cobrança ou envio reais</b> existem. Avaliações e promoções são fictícias.</p><a class="btn" href="#loja" style="text-decoration:none;display:inline-block">Ir às compras</a></div>'}
+function faq(){const q=[["A compra é de verdade?","Não. É 100% simulada, sem cobrança nem entrega."],["Preciso informar cartão ou CPF?","Nunca. Não pedimos dados financeiros."],["Onde ficam meus pedidos?","Só no seu navegador (localStorage). Você pode limpar quando quiser."],["Quais cupons existem?","BUXAS10, UNIVERSO20, CALVO50 (acima de R$ 100) e NADAGRATIS."],["As avaliações são reais?","Não, são demonstrativas e fictícias."]];
+ $('#app').innerHTML='<h2>Perguntas frequentes</h2>'+q.map(a=>`<details><summary>${a[0]}</summary><p>${a[1]}</p></details>`).join('')}
+function route(){const h=location.hash.slice(1)||'loja';closeAll();$('#nav a').forEach?0:0;document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on',h.startsWith(a.dataset.r)));
+ if(h.startsWith('pedido-'))success(h.slice(7));else if(h.startsWith('pedidos'))pedidos(h.slice(8));else if(h=='checkout')checkout();else if(h=='sobre')sobre();else if(h=='faq')faq();
+ else{shop();const m=h.match(/^produto-(\d+)$/);if(m&&byId(m[1]))view(m[1])}scrollTo(0,0)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(b){const a=b.dataset.a,id=b.dataset.id;
+ if(a=='add')add(id,!$('#modal.on')&&false);else if(a=='view')view(id);else if(a=='mx')$('#modal').classList.remove('on');
+ else if(a=='inc')add(id);else if(a=='dec'){cart[id]=Math.max(1,cart[id]-1);saveCart();sumry()}else if(a=='rm'){delete cart[id];saveCart();sumry();if(location.hash=='#checkout'&&!Object.keys(cart).length)checkout()}
+ else if(a=='go'){location.hash==='#'+b.dataset.to?route():location.hash=b.dataset.to}
+ else if(a=='cat'){F.cat=+id;chips();list()}else if(a=='clr'){F={q:'',cat:-1,sort:'',promo:false};shop()}
+ else if(a=='coup'){coupon=$('#cp').value.trim().toUpperCase();sumry();if(!coupon){$('#e3').textContent='Digite um cupom.'}}
+ else if(a=='sname'){uname=$('#dn').value.trim();LS.s('bx_name',uname);toast('Nome salvo!');pedidos()}
+ else if(a=='clrh'){if(confirm('Apagar todo o histórico de pedidos simulados?')){orders=[];LS.s('bx_orders',orders);pedidos()}}
+ else if(a=='share'){const u=location.href.split('#')[0]+'#produto-'+id,p=byId(id);if(navigator.share)navigator.share({title:p.name,text:p.desc,url:u}).catch(()=>{});else(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(()=>toast('Link copiado!'),()=>prompt('Copie o link:',u))}}
+ if(e.target.id=='ov'||e.target.id=='cx')closeAll();if(e.target.id=='modal')$('#modal').classList.remove('on')});
+$('#cartb').onclick=openCart;
+$('#chaos').onclick=e=>{chaos=!chaos;document.body.classList.toggle('chaos',chaos);e.target.setAttribute('aria-pressed',chaos);toast(chaos?'🌀 Caos ativado!':'Ordem restaurada (parcialmente).');$('#foot').firstChild.textContent=chaos?'Aviso caótico: tudo aqui é simulação. Nenhuma cobrança ou entrega real, mesmo no caos. ':'Buxas Shop é uma loja fictícia de brincadeira. Todas as compras são simuladas: nenhuma cobrança, nenhum pagamento e nenhuma entrega reais. Avaliações são demonstrativas.';if(!location.hash||location.hash=='#loja')shop()};
+addEventListener('keydown',e=>{if(e.key=='Escape')closeAll()});
+addEventListener('hashchange',route);saveCart();route();
+</script></body></html>
